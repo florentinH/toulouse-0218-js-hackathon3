@@ -1,43 +1,22 @@
 
 import React, { Component } from 'react'
-import { Admin, Resource } from 'react-admin'
-import jsonServerProvider from 'ra-data-json-server'
-import { PostList } from './Posts'
-import Videoslist from './Videoslist'
-import LoginModal from './loginModal'
+import Homepage from './Homepage'
+import Contributor from './Contributor'
 
-const dataProvider = jsonServerProvider('http://jsonplaceholder.typicode.com')
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 class App extends Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      open: false
-    }
-    this.handleOpen = this.handleOpen.bind(this)
-    this.handleClose = this.handleClose.bind(this)
-  }
-
-  handleOpen () {
-    this.setState({ open: true })
-  };
-
-  handleClose () {
-    this.setState({ open: false })
-  };
-
   render () {
     return (
       <div>
-        <Admin title=" Pourquoi n'y a t-il plus de Mamouth ? " dataProvider={dataProvider}>
-          <Resource name="posts" list={PostList} />
-        </Admin>
-        <Videoslist />
-        <LoginModal
-          open={this.state.open}
-          handleOpen={this.handleOpen}
-          handleClose={this.handleClose}
-        />
+        <Router>
+          <div>
+            <Switch>
+              <Route exact path="/" component={Homepage} />
+              <Route path="/contributor" render={Contributor} />
+            </Switch>
+          </div>
+        </Router>
       </div>
     )
   }
