@@ -5,6 +5,7 @@ import { PostList } from './Posts'
 
 const dataProvider = jsonServerProvider('http://jsonplaceholder.typicode.com');
 
+
 const App = () => 
   <Admin dataProvider={dataProvider}>
     <Resource name="posts" list={PostList} />
