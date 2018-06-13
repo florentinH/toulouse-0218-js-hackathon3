@@ -30,7 +30,7 @@ class Homepage extends Component {
   render () {
     return (
       <div>
-        <Admin title=" Pourquoi n'y a t-il plus de Mamouth ? " dataProvider={dataProvider}>
+        <Admin title=" Pourquoi n'y a t-il plus de Mamouth ? " dataProvider={dataProvider} LoginModal={LoginModal}>
           <Resource name="posts" list={PostList} />
         </Admin>
         <LoginModal
