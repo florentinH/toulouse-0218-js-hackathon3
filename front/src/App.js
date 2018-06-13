@@ -1,9 +1,7 @@
-
 import React, { Component } from 'react'
 import Homepage from './Homepage'
-import Contributor from './Contributor'
-
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import HomePageContributeur from './HomePageContributeur'
 
 class App extends Component {
   render () {
@@ -13,7 +11,7 @@ class App extends Component {
           <div>
             <Switch>
               <Route exact path="/" component={Homepage} />
-              <Route path="/contributor" render={Contributor} />
+              <Route path="/contributor" component={HomePageContributeur} />
             </Switch>
           </div>
         </Router>
