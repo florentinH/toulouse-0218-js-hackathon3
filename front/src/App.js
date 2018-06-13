@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
+import Videoslist from './Videoslist'
 
 class App extends Component {
   render() {
     return (
       <div>
-        Zizi qui tourne
+        <Videoslist />
       </div>
     )
   }
