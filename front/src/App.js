@@ -1,13 +1,13 @@
-import React, { Component } from 'react'
+import React from 'react';
+import { Admin, Resource } from 'react-admin';
+import jsonServerProvider from 'ra-data-json-server';
+import { PostList } from './Posts'
 
-class App extends Component {
-  render() {
-    return (
-      <div>
-        Zizi qui tourne
-      </div>
-    )
-  }
-}
+const dataProvider = jsonServerProvider('http://jsonplaceholder.typicode.com');
 
-export default App
+const App = () => 
+  <Admin dataProvider={dataProvider}>
+    <Resource name="posts" list={PostList} />
+  </Admin>
+
+export default App;
