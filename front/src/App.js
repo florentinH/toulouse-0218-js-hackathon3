@@ -2,8 +2,8 @@
 import React, { Component } from 'react'
 import Homepage from './Homepage'
 import HomePageContributeur from './HomePageContributeur'
-
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import MiniDrawer from './AppBar'
 
 class App extends Component {
   constructor (props) {
@@ -19,6 +19,7 @@ class App extends Component {
   render () {
     return (
       <div>
+        <MiniDrawer />
         <Router>
           <div>
             <Switch>
