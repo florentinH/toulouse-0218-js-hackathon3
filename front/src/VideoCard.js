@@ -7,7 +7,7 @@ import CardContent from '@material-ui/core/CardContent'
 import CardMedia from '@material-ui/core/CardMedia'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
-import Videos from './Videos'
+import Video from './Video'
 
 const styles = {
   card: {
@@ -19,28 +19,28 @@ const styles = {
   }
 }
 
-function Videoslist (props) {
+function VideoCard (props) {
   const { classes } = props
   return (
     <div>
       <Card className={classes.card}>
         <CardMedia
           className={classes.media}
-          videos={ Videos.videoLink }
+          videos={ Video.videoLink }
         />
         <CardContent>
           <Typography gutterBottom variant="title" component="h2">
-            { Videos.title }
+            { Video.title }
           </Typography>
           <Typography component="p">
-            { Videos.resume }
+            { Video.resume }
           </Typography>
         </CardContent>
         <CardActions>
           <Button
             size="small"
             color="primary"
-            href={ Videos.article } >
+            href={ Video.article } >
             Lire l'article ...
           </Button>
         </CardActions>
@@ -49,8 +49,8 @@ function Videoslist (props) {
   )
 }
 
-Videoslist.propTypes = {
+VideoCard.propTypes = {
   classes: PropTypes.object.isRequired
 }
 
-export default withStyles(styles)(Videoslist)
+export default withStyles(styles)(VideoCard)

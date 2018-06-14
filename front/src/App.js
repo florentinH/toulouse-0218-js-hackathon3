@@ -4,7 +4,7 @@ import Homepage from './Homepage'
 import Contributor from './Contributor'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import PersistentDrawer from './AppBar'
-
+import VideoCard from './VideoCard'
 
 class App extends Component {
   render () {
