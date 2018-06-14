@@ -88,14 +88,6 @@ const styles = theme => ({
 });
 
 class MiniDrawer extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      modalOpen: false
-    }
-    this.handleOpen = this.handleOpen.bind(this)
-    this.handleClose = this.handleClose.bind(this)
-  }
   state = {
     open: false,
     modalOpen: false
