@@ -4,6 +4,8 @@ import Homepage from './Homepage'
 import Contributor from './Contributor'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import PersistentDrawer from './AppBar'
+import Profile from './Profile'
+
 
 
 class App extends Component {
@@ -16,6 +18,7 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={Homepage} />
               <Route path="/contributor" render={Contributor} />
+              <Route path="/profile" render={Profile} />
             </Switch>
           </div>
         </Router>
