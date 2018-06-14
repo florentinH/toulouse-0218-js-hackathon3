@@ -10,11 +10,32 @@ import FormControl from '@material-ui/core/FormControl'
 import FormGroup from '@material-ui/core/FormGroup'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import Checkbox from '@material-ui/core/Checkbox'
+import Button from '@material-ui/core/Button'
 // import UploadVideo from './UploadVideo'
 
 const styles = {
+  element: {
+    display: 'flex',
+    justifyContent: 'flex-end'
+  },
+  uploadContent: {
+    display: 'flex',
+    justifyContent: 'flex-start'
+  },
   paperTheme: {
-    width: 250
+    width: 250,
+    display: 'flex'
+  },
+  paperUpload: {
+    backgroundColor: '#DFE8EA',
+    width: 400
+  },
+  paperUploadelements: {
+    display: 'flex',
+    justifyContent: 'center'
+  },
+  checkBox: {
+    marginLeft: 7
   }
 }
 class HomePageContributeur extends Component {
@@ -40,15 +61,19 @@ class HomePageContributeur extends Component {
     return (
       <div>
         <Paper className={classes.paper}>
-          <Grid container>
-            <Grid item xs={12} md={7}>
-              <Typography component="h2">
+          <Grid container className={classes.element}>
+            <Grid item xs={12} md={7} className={classes.uploadContent}>
+              <Paper className={classes.paperUpload}>
+                <Typography component="h2" className={classes.paperUploadelements}>
             Upload du fichier
-              </Typography>
-              <Typography component="h3">
-            Ajouter un titre
-              </Typography>
-              <TextField type='text' />
+                </Typography>
+                <TextField type='text' label='Titre de la vidéo' className={classes.paperUploadelements} />
+                <TextField type='text' label='Rechercher ma position' className={classes.paperUploadelements} /><br />
+                <Button className={classes.paperUploadElements} style={{color: 'white',
+                  backgroundColor: '#1313E6',
+                  marginTop: 5
+                }}>Upload</Button>
+              </Paper>
             </Grid>
             <Paper className={classes.paperTheme}>
               <Grid item xs={12} md={5}>
@@ -62,6 +87,7 @@ class HomePageContributeur extends Component {
                             key = {k}
                             control={
                               <Checkbox
+                                className={classes.checkBox}
                                 checked={this.state[theme]}
                                 onChange={this.handleChange(theme)}
                                 value={theme} />
