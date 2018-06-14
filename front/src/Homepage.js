@@ -5,7 +5,6 @@ import jsonServerProvider from 'ra-data-json-server'
 import { PostList } from './Posts'
 import Videoslist from './Videoslist'
 import LoginModal from './loginModal'
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 
 const dataProvider = jsonServerProvider('http://jsonplaceholder.typicode.com')
 
@@ -37,6 +36,7 @@ class Homepage extends Component {
           open={this.state.open}
           handleOpen={this.handleOpen}
           handleClose={this.handleClose}
+          handleClick={this.props.handleClick}
         />
         <Videoslist />
       </div>

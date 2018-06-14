@@ -1,19 +1,29 @@
 
 import React, { Component } from 'react'
 import Homepage from './Homepage'
-import Contributor from './Contributor'
+import HomePageContributeur from './HomePageContributeur'
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 class App extends Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      logged: false
+    }
+    this.handleClick = this.handleClick.bind(this)
+  }
+  handleClick () {
+    this.setState({ logged: true })
+  }
   render () {
     return (
       <div>
         <Router>
           <div>
             <Switch>
-              <Route exact path="/" component={Homepage} />
-              <Route path="/contributor" render={Contributor} />
+              <Route exact path="/" render={matchProps => <Homepage {...matchProps} logged={this.state.logged} handleClick={this.handleClick} />} />
+              <Route path="/contributor" render={HomePageContributeur} />
             </Switch>
           </div>
         </Router>

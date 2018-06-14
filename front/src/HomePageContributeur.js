@@ -1,7 +1,7 @@
 import React from 'react'
 import Button from '@material-ui/core/Button'
 
-class Contributor extends React.Component {
+class HomePageContributeur extends React.Component {
   render () {
     return (
       <Button></Button>
@@ -9,4 +9,4 @@ class Contributor extends React.Component {
   }
 }
 
-export default Contributor
+export default HomePageContributeur
