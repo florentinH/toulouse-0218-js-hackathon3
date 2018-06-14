@@ -22,6 +22,7 @@ class App extends Component {
         <Router>
           <div>
             <Switch>
+              {/* A remplacer par Layout */}
               <Route exact path="/" render={matchProps => <Homepage {...matchProps} logged={this.state.logged} handleClick={this.handleClick} />} />
               <Route path="/contributor" render={HomePageContributeur} />
             </Switch>
