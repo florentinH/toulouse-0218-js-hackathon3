@@ -5,14 +5,19 @@ import Modal from '@material-ui/core/Modal'
 import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
 import FormControl from '@material-ui/core/FormControl'
+// import Auth from './Auth'
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Redirect,
+  withRouter
+} from 'react-router-dom'
 
-function rand () {
-  return Math.round(Math.random() * 20) - 10
-}
-
+// Affichage Modal
 function getModalStyle () {
-  const top = 50 + rand()
-  const left = 50 + rand()
+  const top = 50
+  const left = 50
 
   return {
     top: `${top}%`,
@@ -75,9 +80,7 @@ class SimpleModal extends React.Component {
                 // onChange={this.handleChange('password')}
                 margin="normal"
               />
-              <Button color="primary" className={classes.button}>Login
-                {/* <Link to = "/calendar"></Link> */}
-              </Button>
+              <Button color="primary" className={classes.button} onClick={ props.handleClick }>Login</Button>
             </FormControl>
           </div>
         </Modal>

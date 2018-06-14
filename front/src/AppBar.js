@@ -20,7 +20,6 @@ const drawerWidth = 240;
 const styles = theme => ({
   root: {
     flexGrow: 1,
-    height: 430,
     zIndex: 1,
     overflow: 'hidden',
     position: 'relative',
@@ -96,7 +95,7 @@ class MiniDrawer extends React.Component {
   };
 
   render() {
-    const { classes, theme } = this.props;
+    const { classes, theme, component: Component, componentProps } = this.props;
 
     return (
       <div className={classes.root}>
@@ -138,7 +137,7 @@ class MiniDrawer extends React.Component {
         </Drawer>
         <main className={classes.content}>
           <div className={classes.toolbar} />
-          <Typography noWrap>{'You think water moves fast? You should see ice.'}</Typography>
+          <Component {...componentProps} />
         </main>
       </div>
     );
