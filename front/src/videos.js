@@ -1,7 +1,4 @@
-import React from 'react'
-
-
-const Video = [
+const videos = [
       { id: 1, title: 'Le sport rend heureux, c’est mesuré !', 
         resume: 'Une étude portant sur plus de 500 000 personnes ...', 
         videoLink: 'https://youtu.be/nc7Z3EBMevg', 
@@ -31,7 +28,7 @@ const Video = [
        },
       { id: 5, 
         title: 'L’économie est plus rentable c’est prouvé !', 
-        resume: 'L&#39;économie verte est non seulement nécessaire mais ...', 
+        resume: 'L’économie verte est non seulement nécessaire mais ...', 
         videoLink: 'https://www.youtube.com/watch?v=nsuwAplB1eg&feature=youtu.be', 
         articleLink: 'https://www.tdg.ch/savoirs/environnement/choisir-economie-verte-rentable/story/30129048' 
         },
@@ -46,4 +43,4 @@ const Video = [
   
 
 
-export default (Video)
+export default (videos)

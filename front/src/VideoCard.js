@@ -7,42 +7,50 @@ import CardContent from '@material-ui/core/CardContent'
 import CardMedia from '@material-ui/core/CardMedia'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
-import Video from './Video'
+
 
 const styles = {
   card: {
-    maxWidth: 345
+    maxWidth: 345,
+    backgroundColor: "#DCDCDC",
   },
   media: {
     height: 0,
     paddingTop: '56.25%' // 16:9
+  },
+  read: {
+    backgroundColor: "#DC143C",
+    color: "#FFFFFF"
   }
 }
 
 function VideoCard (props) {
-  const { classes } = props
+  const { classes, video } = props
   return (
     <div>
       <Card className={classes.card}>
         <CardMedia
           className={classes.media}
-          videos={ Video.videoLink }
+          videos={ video.videoLink }
         />
         <CardContent>
           <Typography gutterBottom variant="title" component="h2">
-            { Video.title }
+            { video.title }
           </Typography>
           <Typography component="p">
-            { Video.resume }
+            { video.resume }
           </Typography>
         </CardContent>
         <CardActions>
+          <a href={ video.articleLink } target="_blank">
           <Button
             size="small"
             color="primary"
-            href={ Video.article } >
+            className={classes.read}
+             >
             Lire l'article ...
           </Button>
+          </a>
         </CardActions>
       </Card>
     </div>

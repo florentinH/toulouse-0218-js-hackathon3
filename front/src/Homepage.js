@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react'
 import jsonServerProvider from 'ra-data-json-server'
-import Videoslist from './Videoslist'
+import VideoList from './VideoList'
 import LoginModal from './loginModal'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 
@@ -34,7 +34,7 @@ class Homepage extends Component {
           handleOpen={this.handleOpen}
           handleClose={this.handleClose}
         />
-        <Videoslist />
+        <VideoList />
       </div>
     )
   }
