@@ -14,10 +14,8 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 // import { mailFolderListItems, otherMailFolderListItems } from './tileData';
 import SimpleList from './ListMenu'
-import Avatar from '@material-ui/core/Avatar'
-import Button from '@material-ui/core/Button'
 import LoginModal from './loginModal'
-
+import PowerSettingsNew from '@material-ui/icons/PowerSettingsNew'
 
 
 const drawerWidth = 240;
@@ -84,9 +82,8 @@ const styles = theme => ({
     backgroundColor: theme.palette.background.default,
     padding: theme.spacing.unit * 3,
   },
-  avatar: {
-    flex: 1,
-    minMarginRight: 10
+  title: {
+    flexGrow: 1
   }
 });
 
@@ -101,6 +98,7 @@ class MiniDrawer extends React.Component {
   }
   state = {
     open: false,
+    modalOpen: false
   };
 
   handleDrawerOpen = () => {
@@ -111,13 +109,13 @@ class MiniDrawer extends React.Component {
     this.setState({ open: false });
   };
 
-  handleOpen () {
-    this.setState({ modalOpen: true })
-  };
+handleModalOpen = () => {
+  this.setState({ modalOpen: true })
+};
 
-  handleClose () {
-    this.setState({ modalOpen: false })
-  };
+handleModalClose = () => {
+  this.setState({ modalOpen: false })
+};
 
   render() {
     const { classes, theme, component: Component, componentProps } = this.props;
@@ -137,16 +135,13 @@ class MiniDrawer extends React.Component {
             >
               <MenuIcon />
             </IconButton>
-            <Typography variant="title" color="inherit" noWrap>
-              Mini variant drawer
+            <Typography variant="title" color="inherit" noWrap className={classes.title} >
+              Winnews
             </Typography>
-            <Avatar alt="Remy Sharp" img src="ABC_3077.jpg" className={classes.avatar} />
-            <LoginModal
-              modalOpen={this.state.modalOpen}
-              handleOpen={this.handleOpen}
-              handleClose={this.handleClose}
-              handleClick={this.props.handleClick}
-            />
+            <IconButton
+              onClick={this.handleModalOpen} className={classes.menuButton} color="inherit">
+              <PowerSettingsNew />
+            </IconButton>
           </Toolbar>
         </AppBar>
         <Drawer
@@ -171,6 +166,12 @@ class MiniDrawer extends React.Component {
           <div className={classes.toolbar} />
           <Component {...componentProps} />
         </main>
+        <LoginModal
+          open={this.state.modalOpen}
+          handleOpen={this.handleModalOpen}
+          handleClose={this.handleModalClose}
+          handleClick={this.props.handleClick}
+        />
       </div>
     );
   }

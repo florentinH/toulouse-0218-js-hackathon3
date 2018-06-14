@@ -10,50 +10,55 @@ import Typography from '@material-ui/core/Typography'
 
 const styles = {
   card: {
-    maxWidth: 345
+    maxWidth: 345,
+    backgroundColor: '#DCDCDC',
+    marginTop: 10
   },
   media: {
     height: 0,
     paddingTop: '56.25%' // 16:9
+  },
+  read: {
+    backgroundColor: '#DC143C',
+    color: '#FFFFFF',
   }
 }
 
-function Videoslist (props) {
-  const { classes } = props
+function VideoCard (props) {
+  const { classes, video } = props
   return (
     <div>
       <Card className={classes.card}>
         <CardMedia
           className={classes.media}
-          image="https://static.boredpanda.com/blog/wp-content/uploads/2017/04/edible-water-bubble-skipping-rocks-lab-1-58ee297ad3917__700.jpg"
-          title="Contemplative Reptile"
+          videos={ video.videoLink }
         />
         <CardContent>
-          <Typography gutterBottom variant="headline" component="h2">
-            Les Water Bubbles
+          <Typography gutterBottom variant="title" component="h2">
+            { video.title }
           </Typography>
-          <Typography component="p">
-            Nouvelle façon de boire de l'eau ...
+          <Typography className={classes.text} component="p">
+            { video.resume }
           </Typography>
         </CardContent>
         <CardActions>
-          <Button
-            size="small"
-            color="primary"
-            href="https://www.boredpanda.com/edible-water-bubble-skipping-rocks-lab/" >
+          <a href={ video.articleLink } target="_blank">
+            <Button
+              size="small"
+              color="primary"
+              className={classes.read}
+            >
             Lire l'article ...
-          </Button>
-          {/* <Button size="small" color="primary">
-            Learn More
-          </Button> */}
+            </Button>
+          </a>
         </CardActions>
       </Card>
     </div>
   )
 }
 
-Videoslist.propTypes = {
+VideoCard.propTypes = {
   classes: PropTypes.object.isRequired
 }
 
-export default withStyles(styles)(Videoslist)
+export default withStyles(styles)(VideoCard)

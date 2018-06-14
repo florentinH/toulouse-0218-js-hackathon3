@@ -1,13 +1,12 @@
 
 import React, { Component } from 'react'
-import Videoslist from './Videoslist'
+import VideoList from './VideoList'
 
 class Homepage extends Component {
-
   render () {
     return (
       <div>
-        <Videoslist />
+        <VideoList />
       </div>
     )
   }
