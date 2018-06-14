@@ -5,14 +5,6 @@ import Modal from '@material-ui/core/Modal'
 import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
 import FormControl from '@material-ui/core/FormControl'
-// import Auth from './Auth'
-import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  Redirect,
-  withRouter
-} from 'react-router-dom'
 
 // Affichage Modal
 function getModalStyle () {
@@ -49,6 +41,9 @@ const styles = theme => ({
 })
 
 class SimpleModal extends React.Component {
+  handleChange () {
+    this.setState({ value: this.target.value })
+  }
   render () {
     const { classes } = this.props
     const props = this.props
@@ -69,7 +64,6 @@ class SimpleModal extends React.Component {
                 label="Pseudo"
                 className={classes.textField}
                 placeholder=" "
-                // onChange={this.handleChange('name')}
                 margin="normal"
               />
               <TextField
@@ -77,10 +71,9 @@ class SimpleModal extends React.Component {
                 label="Password"
                 className={classes.textField}
                 type="password"
-                // onChange={this.handleChange('password')}
                 margin="normal"
               />
-              <Button color="primary" className={classes.button} onClick={ props.handleClick }>Login</Button>
+              <Button color="primary" className={ classes.button } onClick={ props.handleClick }>Login</Button>
             </FormControl>
           </div>
         </Modal>
