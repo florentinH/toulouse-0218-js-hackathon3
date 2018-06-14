@@ -13,7 +13,8 @@ const styles = {
     color: 'grey'
   },
   paper: {
-    backgroundColor: 'grey'
+    backgroundColor: 'grey',
+    height: 500
   }
 }
 class HomePageContributeur extends Component {
@@ -36,13 +37,15 @@ class HomePageContributeur extends Component {
               </Typography>
               <TextField type='text' />
             </Grid>
-            <Grid item xs={12} md={5}>
-              <Grid>
-                <Typography component="h2">
+            <Paper>
+              <Grid item xs={12} md={5}>
+                <Grid>
+                  <Typography component="h2">
                 Thèmes:
-                </Typography>
+                  </Typography>
+                </Grid>
               </Grid>
-            </Grid>
+            </Paper>
           </Grid>
         </Paper>
       </div>
