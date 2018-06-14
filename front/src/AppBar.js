@@ -14,13 +14,15 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 // import { mailFolderListItems, otherMailFolderListItems } from './tileData';
 import SimpleList from './ListMenu'
+import LoginModal from './loginModal'
+import PowerSettingsNew from '@material-ui/icons/PowerSettingsNew'
+
 
 const drawerWidth = 240;
 
 const styles = theme => ({
   root: {
     flexGrow: 1,
-    height: 430,
     zIndex: 1,
     overflow: 'hidden',
     position: 'relative',
@@ -80,11 +82,15 @@ const styles = theme => ({
     backgroundColor: theme.palette.background.default,
     padding: theme.spacing.unit * 3,
   },
+  title: {
+    flexGrow: 1
+  }
 });
 
 class MiniDrawer extends React.Component {
   state = {
     open: false,
+    modalOpen: false
   };
 
   handleDrawerOpen = () => {
@@ -95,8 +101,16 @@ class MiniDrawer extends React.Component {
     this.setState({ open: false });
   };
 
+handleModalOpen = () => {
+  this.setState({ modalOpen: true })
+};
+
+handleModalClose = () => {
+  this.setState({ modalOpen: false })
+};
+
   render() {
-    const { classes, theme } = this.props;
+    const { classes, theme, component: Component, componentProps } = this.props;
 
     return (
       <div className={classes.root}>
@@ -113,9 +127,13 @@ class MiniDrawer extends React.Component {
             >
               <MenuIcon />
             </IconButton>
-            <Typography variant="title" color="inherit" noWrap>
-              Mini variant drawer
+            <Typography variant="title" color="inherit" noWrap className={classes.title} >
+              Winnews
             </Typography>
+            <IconButton
+              onClick={this.handleModalOpen} className={classes.menuButton} color="inherit">
+              <PowerSettingsNew />
+            </IconButton>
           </Toolbar>
         </AppBar>
         <Drawer
@@ -138,8 +156,14 @@ class MiniDrawer extends React.Component {
         </Drawer>
         <main className={classes.content}>
           <div className={classes.toolbar} />
-          <Typography noWrap>{'You think water moves fast? You should see ice.'}</Typography>
+          <Component {...componentProps} />
         </main>
+        <LoginModal
+          open={this.state.modalOpen}
+          handleOpen={this.handleModalOpen}
+          handleClose={this.handleModalClose}
+          handleClick={this.props.handleClick}
+        />
       </div>
     );
   }

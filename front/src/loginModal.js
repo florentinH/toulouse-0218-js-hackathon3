@@ -6,13 +6,10 @@ import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
 import FormControl from '@material-ui/core/FormControl'
 
-function rand () {
-  return Math.round(Math.random() * 20) - 10
-}
-
+// Affichage Modal
 function getModalStyle () {
-  const top = 50 + rand()
-  const left = 50 + rand()
+  const top = 50
+  const left = 50
 
   return {
     top: `${top}%`,
@@ -44,9 +41,74 @@ const styles = theme => ({
 })
 
 class SimpleModal extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      wantLogin: true
+    }
+    this.wantSignIn = this.wantSignIn.bind(this)
+    this.wantLogIn = this.wantLogIn.bind(this)
+  }
+
+  wantSignIn () {
+    this.setState({ wantLogin: false })
+  }
+  wantLogIn () {
+    this.setState({ wantLogin: true })
+  }
   render () {
     const { classes } = this.props
     const props = this.props
+    const whatToDisplay = (bool, classes, props) => {
+      if (bool === true) {
+        return (<FormControl className={classes.container} noValidate autoComplete="off">
+          <TextField
+            id="name"
+            label="Pseudo"
+            className={classes.textField}
+            placeholder=" "
+            margin="normal"
+          />
+          <TextField
+            id="password-input"
+            label="Password"
+            className={classes.textField}
+            type="password"
+            margin="normal"
+          />
+          <Button color="primary" className={ classes.button } onClick={ props.handleClick }>Login</Button>
+          <Button color="primary" className={ classes.button } onClick={ this.wantSignIn }>Je m'inscris</Button>
+        </FormControl>
+        )
+      } else {
+        return (<FormControl className={classes.container} noValidate autoComplete="off">
+          <TextField
+            id="name"
+            label="Name"
+            className={classes.textField}
+            placeholder=" "
+            margin="normal"
+          />
+          <TextField
+            id="pseudo"
+            label="Pseudo"
+            className={classes.textField}
+            placeholder=" "
+            margin="normal"
+          />
+          <TextField
+            id="password-input"
+            label="Password"
+            className={classes.textField}
+            type="password"
+            margin="normal"
+          />
+          <Button color="primary" className={ classes.button } onClick={ props.handleClick }>SignIn</Button>
+          <Button color="primary" className={ classes.button } onClick={ this.wantLogIn }>J'ai déjà un compte</Button>
+        </FormControl>
+        )
+      }
+    }
 
     return (
       <div>
@@ -56,29 +118,8 @@ class SimpleModal extends React.Component {
           open={this.props.open}
           onClose={props.handleClose}
         >
-          <div style={getModalStyle()} className={classes.paper}>
-            <FormControl className={classes.container} noValidate autoComplete="off">
-              <h3>Login</h3>
-              <TextField
-                id="name"
-                label="Pseudo"
-                className={classes.textField}
-                placeholder=" "
-                // onChange={this.handleChange('name')}
-                margin="normal"
-              />
-              <TextField
-                id="password-input"
-                label="Password"
-                className={classes.textField}
-                type="password"
-                // onChange={this.handleChange('password')}
-                margin="normal"
-              />
-              <Button color="primary" className={classes.button}>Login
-                {/* <Link to = "/calendar"></Link> */}
-              </Button>
-            </FormControl>
+          <div style={getModalStyle()} className={classes.paper} >
+            {whatToDisplay(this.state.wantLogin, classes, props)}
           </div>
         </Modal>
       </div>
@@ -91,7 +132,6 @@ SimpleModal.propTypes = {
   open: PropTypes.boolean
 }
 
-// We need an intermediary variable for handling the recursive nesting.
 const LoginModal = withStyles(styles)(SimpleModal)
 
 export default LoginModal

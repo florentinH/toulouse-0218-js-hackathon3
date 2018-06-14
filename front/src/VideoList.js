@@ -11,9 +11,9 @@ const VideoList = (props) => (
         <Grid item
           xs={12} sm={4}
           key={k}>
-          <VideoCard 
-            video={video} 
-           />
+          <VideoCard
+            video={video}
+          />
         </Grid>
       )
     }
