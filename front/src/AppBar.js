@@ -14,6 +14,11 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 // import { mailFolderListItems, otherMailFolderListItems } from './tileData';
 import SimpleList from './ListMenu'
+import Avatar from '@material-ui/core/Avatar'
+import Button from '@material-ui/core/Button'
+import LoginModal from './loginModal'
+
+
 
 const drawerWidth = 240;
 
@@ -79,9 +84,21 @@ const styles = theme => ({
     backgroundColor: theme.palette.background.default,
     padding: theme.spacing.unit * 3,
   },
+  avatar: {
+    flex: 1,
+    minMarginRight: 10
+  }
 });
 
 class MiniDrawer extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      modalOpen: false
+    }
+    this.handleOpen = this.handleOpen.bind(this)
+    this.handleClose = this.handleClose.bind(this)
+  }
   state = {
     open: false,
   };
@@ -92,6 +109,14 @@ class MiniDrawer extends React.Component {
 
   handleDrawerClose = () => {
     this.setState({ open: false });
+  };
+
+  handleOpen () {
+    this.setState({ modalOpen: true })
+  };
+
+  handleClose () {
+    this.setState({ modalOpen: false })
   };
 
   render() {
@@ -115,6 +140,13 @@ class MiniDrawer extends React.Component {
             <Typography variant="title" color="inherit" noWrap>
               Mini variant drawer
             </Typography>
+            <Avatar alt="Remy Sharp" img src="ABC_3077.jpg" className={classes.avatar} />
+            <LoginModal
+              modalOpen={this.state.modalOpen}
+              handleOpen={this.handleOpen}
+              handleClose={this.handleClose}
+              handleClick={this.props.handleClick}
+            />
           </Toolbar>
         </AppBar>
         <Drawer
