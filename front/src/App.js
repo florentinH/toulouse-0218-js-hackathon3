@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import Homepage from './Homepage'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import HomePageContributeur from './HomePageContributeur'
-import PersistentDrawer from './AppBar'
 import Layout from './Layout'
 
 class App extends Component {
