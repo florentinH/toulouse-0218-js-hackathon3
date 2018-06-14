@@ -3,26 +3,23 @@ import React, { Component } from 'react'
 import Homepage from './Homepage'
 import Contributor from './Contributor'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import PersistentDrawer from './AppBar'
 import Profile from './Profile'
-
+import MiniDrawer from './AppBar'
 
 
 class App extends Component {
   render () {
     return (
-      <div>
-        <PersistentDrawer />
-        <Router>
-          <div>
-            <Switch>
-              <Route exact path="/" component={Homepage} />
-              <Route path="/contributor" render={Contributor} />
-              <Route path="/profile" render={Profile} />
-            </Switch>
-          </div>
-        </Router>
-      </div>
+      <Router>
+        <div>
+          <MiniDrawer />
+          <Switch>
+            <Route exact path="/" component={Homepage} />
+            <Route path="/contributor" component={Contributor} />
+            <Route path="/profile" component={Profile} />
+          </Switch>
+        </div>
+      </Router>
     )
   }
 }
