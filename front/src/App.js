@@ -1,9 +1,8 @@
-
 import React, { Component } from 'react'
 import Homepage from './Homepage'
-import HomePageContributeur from './HomePageContributeur'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import MiniDrawer from './AppBar'
+import HomePageContributeur from './HomePageContributeur'
+import Layout from './Layout'
 
 class App extends Component {
   constructor (props) {
@@ -19,13 +18,11 @@ class App extends Component {
   render () {
     return (
       <div>
-        <MiniDrawer />
         <Router>
           <div>
             <Switch>
-              {/* A remplacer par Layout */}
-              <Route exact path="/" render={matchProps => <Homepage {...matchProps} logged={this.state.logged} handleClick={this.handleClick} />} />
-              <Route path="/contributor" render={HomePageContributeur} />
+              <Layout exact path="/" component={Homepage} handleClick={this.handleClick} logged={this.state.logged} />
+              <Layout exact path="/contributor" component={HomePageContributeur} />
             </Switch>
           </div>
         </Router>

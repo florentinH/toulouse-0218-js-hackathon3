@@ -1,11 +1,7 @@
 
 import React, { Component } from 'react'
-import jsonServerProvider from 'ra-data-json-server'
 import Videoslist from './Videoslist'
 import LoginModal from './loginModal'
-
-
-const dataProvider = jsonServerProvider('http://jsonplaceholder.typicode.com')
 
 class Homepage extends Component {
   constructor (props) {
@@ -27,7 +23,7 @@ class Homepage extends Component {
 
   render () {
     return (
-      <div>        
+      <div>
         <LoginModal
           open={this.state.open}
           handleOpen={this.handleOpen}
