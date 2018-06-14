@@ -3,17 +3,17 @@ import Homepage from './Homepage'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import HomePageContributeur from './HomePageContributeur'
 import PersistentDrawer from './AppBar'
+import Layout from './Layout'
 
 class App extends Component {
   render () {
     return (
       <div>
-        <PersistentDrawer />
         <Router>
           <div>
             <Switch>
               <Route exact path="/" component={Homepage} />
-              <Route path="/contributor" component={HomePageContributeur} />
+              <Layout exact path="/contributor" component={HomePageContributeur} />
             </Switch>
           </div>
         </Router>
