@@ -1,21 +1,18 @@
-
 import React, { Component } from 'react'
 import Homepage from './Homepage'
-import Contributor from './Contributor'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import MiniDrawer from './AppBar'
-
+import HomePageContributeur from './HomePageContributeur'
+import Layout from './Layout'
 
 class App extends Component {
   render () {
     return (
       <div>
-        <MiniDrawer />
         <Router>
           <div>
             <Switch>
-              <Route exact path="/" component={Homepage} />
-              <Route path="/contributor" render={Contributor} />
+              <Layout exact path="/" component={Homepage} />
+              <Layout exact path="/contributor" component={HomePageContributeur} />
             </Switch>
           </div>
         </Router>
