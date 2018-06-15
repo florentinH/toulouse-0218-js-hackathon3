@@ -20,7 +20,7 @@ const styles = {
   },
   read: {
     backgroundColor: '#DC143C',
-    color: '#FFFFFF',
+    color: '#FFFFFF'
   }
 }
 

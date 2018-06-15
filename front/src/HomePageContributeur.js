@@ -11,6 +11,8 @@ import FormGroup from '@material-ui/core/FormGroup'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import Checkbox from '@material-ui/core/Checkbox'
 import Button from '@material-ui/core/Button'
+import UploadVideo from './UploadVideo'
+
 // import UploadVideo from './UploadVideo'
 
 const styles = {
@@ -38,10 +40,17 @@ const styles = {
     marginLeft: 7
   }
 }
+
 class HomePageContributeur extends Component {
+  onChangeFile = (e) => {
+    this.setState({
+      file: e.target.files[0]
+    })
+  }
   constructor (props) {
     super(props)
     this.state = {
+      tags: {
       ecologie: false,
       social: false,
       economie: false,
@@ -49,14 +58,16 @@ class HomePageContributeur extends Component {
       technologie: false,
       sante: false,
       art: false
+      }
     }
   }
   handleChange (theme) {
+    const {tags} = this.state
     return event =>
-      this.setState({ [theme]: event.target.checked })
+      this.setState({ tags:{...tags, [theme]: event.target.checked }})
   }
   render () {
-    const themes = (Object.keys(this.state))
+    const themes = (Object.keys(this.state.tags))
     const { classes } = this.props
     return (
       <div>
@@ -69,10 +80,9 @@ class HomePageContributeur extends Component {
                 </Typography>
                 <TextField type='text' label='Titre de la vidéo' className={classes.paperUploadelements} />
                 <TextField type='text' label='Rechercher ma position' className={classes.paperUploadelements} /><br />
-                <Button className={classes.paperUploadElements} style={{color: 'white',
-                  backgroundColor: '#1313E6',
-                  marginTop: 5
-                }}>Upload</Button>
+                <input type='file' onChange={this.onChangeFile} />
+                <UploadVideo file={this.state.file} />
+                
               </Paper>
             </Grid>
             <Paper className={classes.paperTheme}>
