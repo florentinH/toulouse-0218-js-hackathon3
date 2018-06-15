@@ -12,6 +12,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel'
 import Checkbox from '@material-ui/core/Checkbox'
 import Button from '@material-ui/core/Button'
 // import UploadVideo from './UploadVideo'
+import Geoloc from './Geoloc'
 
 const styles = {
   element: {
@@ -27,8 +28,8 @@ const styles = {
     display: 'flex'
   },
   paperUpload: {
-    backgroundColor: '#DFE8EA',
-    width: 400
+    width: 400,
+    height: 500
   },
   paperUploadelements: {
     display: 'flex',
@@ -59,49 +60,48 @@ class HomePageContributeur extends Component {
     const themes = (Object.keys(this.state))
     const { classes } = this.props
     return (
-      <div>
-        <Paper className={classes.paper}>
-          <Grid container className={classes.element}>
-            <Grid item xs={12} md={7} className={classes.uploadContent}>
-              <Paper className={classes.paperUpload}>
-                <Typography component="h2" className={classes.paperUploadelements}>
-            Upload du fichier
-                </Typography>
-                <TextField type='text' label='Titre de la vidéo' className={classes.paperUploadelements} />
-                <TextField type='text' label='Rechercher ma position' className={classes.paperUploadelements} /><br />
-                <Button className={classes.paperUploadElements} style={{color: 'white',
-                  backgroundColor: '#1313E6',
-                  marginTop: 5
-                }}>Upload</Button>
-              </Paper>
-            </Grid>
-            <Paper className={classes.paperTheme}>
-              <Grid item xs={12} md={5}>
-                <Grid>
-                  <FormControl component="fieldset">
-                    <FormLabel component="legend">Thèmes:</FormLabel>
-                    <FormGroup>
-                      {
-                        themes.map((theme, k) => (
-                          <FormControlLabel
-                            key = {k}
-                            control={
-                              <Checkbox
-                                className={classes.checkBox}
-                                checked={this.state[theme]}
-                                onChange={this.handleChange(theme)}
-                                value={theme} />
-                            }
-                            label={theme} />
-                        ))
-                      }
-                    </FormGroup>
-                  </FormControl>
-                </Grid>
-              </Grid>
-            </Paper>
+      <div className={classes.paper}>
+        <Grid container className={classes.element}>
+          <Grid item xs={12} md={7} className={classes.uploadContent}>
+            <div className={classes.paperUpload}>
+              <Typography component="h2" className={classes.paperUploadelements}>
+          Upload du fichier
+              </Typography>
+              <TextField type='text' label='Titre de la vidéo' className={classes.paperUploadelements} /><br />
+              <TextField type='text' label='Url article' className={classes.paperUploadelements} /><br />
+              <Geoloc /><br />
+              <Button className={classes.paperUploadElements} style={{color: 'white',
+                backgroundColor: '#1313E6',
+                marginTop: 5,
+              }}>Upload</Button>
+            </div>
           </Grid>
-        </Paper>
+          <div className={classes.paperTheme}>
+            <Grid item xs={12} md={5}>
+              <Grid>
+                <FormControl component="fieldset">
+                  <FormLabel component="legend">Thèmes:</FormLabel>
+                  <FormGroup>
+                    {
+                      themes.map((theme, k) => (
+                        <FormControlLabel
+                          key = {k}
+                          control={
+                            <Checkbox
+                              className={classes.checkBox}
+                              checked={this.state[theme]}
+                              onChange={this.handleChange(theme)}
+                              value={theme} />
+                          }
+                          label={theme} />
+                      ))
+                    }
+                  </FormGroup>
+                </FormControl>
+              </Grid>
+            </Grid>
+          </div>
+        </Grid>
       </div>
     )
   }

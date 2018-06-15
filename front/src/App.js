@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Switch } from 'react-router-dom'
 import HomePageContributeur from './HomePageContributeur'
 import Layout from './Layout'
 import Profile from './Profile'
-import Geoloc from './Geoloc'
 
 
 class App extends Component {
@@ -21,7 +20,7 @@ class App extends Component {
   render () {
     return (
       <div>
-        <Geoloc />
+        
         <Router>
           <div>
             <Switch>

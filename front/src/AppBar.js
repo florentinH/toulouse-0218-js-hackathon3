@@ -117,7 +117,7 @@ handleModalClose = () => {
           position="absolute"
           className={classNames(classes.appBar, this.state.open && classes.appBarShift)}
         >
-          <Toolbar disableGutters={!this.state.open}>
+          <Toolbar  disableGutters={!this.state.open}>
             <IconButton
               color="inherit"
               aria-label="open drawer"

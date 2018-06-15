@@ -5,11 +5,13 @@
   "dependencies": {
     "@material-ui/core": "^1.2.1",
     "@material-ui/icons": "^1.1.0",
+    "@material-ui/lab": "^1.0.0-alpha.5",
     "axios": "^0.18.0",
     "eslint": "^4.19.1",
     "eslint-plugin-react": "^7.9.1",
     "firebase": "^5.0.4",
     "ra-data-json-server": "^2.0.2",
+    "rc-slider": "^8.6.1",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-geolocated": "^2.4.0",
