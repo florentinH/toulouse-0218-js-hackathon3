@@ -45,6 +45,7 @@ function VideoCard (props) {
           className={classes.media}
           videos={ video.videoLink }
         />
+        {/* <ReactPlayer className={classes.media} url={ video.videoLink } playing /> */}
         <CardContent>
           <Typography gutterBottom variant="title" component="h2">
             { video.title }
