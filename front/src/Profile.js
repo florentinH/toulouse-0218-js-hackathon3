@@ -27,8 +27,8 @@ const styles = theme => ({
     margin: 10
   },
   bigAvatar: {
-    width: 60,
-    height: 60
+    width: 200,
+    height: 200
   }
 })
 
@@ -39,10 +39,9 @@ function Profile (props) {
     <Grid container justify = "center">
       <div>
         <div className={classes.row}>
-          <Avatar alt="Remy Sharp" src="/static/images/remy.jpg" className={classes.avatar} />
           <Avatar
             alt="Adelle Charles"
-            image="linkedin.png"
+            img src="./ABC_3077.jpg"
             className={classNames(classes.avatar, classes.bigAvatar)}
           />
         </div>
@@ -72,7 +71,7 @@ function Profile (props) {
               <Work />
             </Grid>
             <Grid item>
-              <TextField id="input-with-icon-grid" label="Employé" />
+              <TextField id="input-with-icon-grid" label="Employeur" />
             </Grid>
           </Grid>
         </div>

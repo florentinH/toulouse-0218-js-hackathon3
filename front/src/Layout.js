@@ -7,7 +7,7 @@ const Layout = ({component: Component, exact, path, ...rest}) => {
   return (
     <Route exact={exact} path={path} render={matchProps => (
       <div>
-        <MiniDrawer component={Component} componentProps={{...rest}} />
+        <MiniDrawer component={Component} handleClick={this.handleClick} componentProps={{...rest}} />
       </div>)}
     />
   )

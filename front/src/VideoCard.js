@@ -12,7 +12,8 @@ const styles = {
   card: {
     maxWidth: 345,
     backgroundColor: '#DCDCDC',
-    marginTop: 10
+    marginTop: 10,
+    height: 380
   },
   media: {
     height: 0,
@@ -21,6 +22,9 @@ const styles = {
   read: {
     backgroundColor: '#DC143C',
     color: '#FFFFFF',
+  },
+  articleLink: {
+    marginBottom: 100
   }
 }
 
