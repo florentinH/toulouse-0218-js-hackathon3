@@ -54,7 +54,7 @@ function VideoCard (props) {
           <Typography component="p">
             { video.resume }
           </Typography>
-          </CardContent>
+        </CardContent>
         <CardActions>
           <a href={ video.articleLink } target="_blank">
             <Button
