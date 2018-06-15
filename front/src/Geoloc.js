@@ -12,7 +12,6 @@ class Geoloc extends React.Component {
             <tbody>
               <tr><td>latitude</td><td>{this.props.coords.latitude}</td></tr>
               <tr><td>longitude</td><td>{this.props.coords.longitude}</td></tr>
-              <tr><td>altitude</td><td>{this.props.coords.altitude}</td></tr>
             </tbody>
           </table>
           : <div>Getting the location data&hellip; </div>

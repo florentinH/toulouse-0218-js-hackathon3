@@ -4,24 +4,21 @@ import { withStyles } from '@material-ui/core/styles'
 import Card from '@material-ui/core/Card'
 import CardActions from '@material-ui/core/CardActions'
 import CardContent from '@material-ui/core/CardContent'
+import CardMedia from '@material-ui/core/CardMedia'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
-import YouTube from '@u-wave/react-youtube'
 
 const styles = {
   card: {
     position: 'relative',
     maxWidth: 345,
-    backgroundColor: '#F2EEEE',
-    marginTop: 25,
+    backgroundColor: '#DCDCDC',
+    marginTop: 10,
     height: 380
   },
   media: {
-    width: '100%'
-  },
-  resume: {
-    position: 'absolute',
-    bottom: 40
+    height: 0,
+    paddingTop: '56.25%' // 16:9
   },
   read: {
     position: 'absolute',
@@ -29,34 +26,30 @@ const styles = {
     backgroundColor: '#DC143C',
     color: '#FFFFFF'
   },
-  links: {
-    textDecoration: 'none'
+  articleLink: {
+    marginBottom: 100
   }
 }
 
-function VideoCard (props) {
+function Random (props) {
   const { classes, video } = props
-  const videoId = video.videoLink.split('=').pop()
   return (
     <div>
       <Card className={classes.card}>
-        <YouTube
+        <CardMedia
           className={classes.media}
-          video={ videoId }
+          videos={ video.videoLink }
         />
-        {/* <ReactPlayer className={classes.media} url={ video.videoLink } playing /> */}
         <CardContent>
           <Typography gutterBottom variant="title" component="h2">
             { video.title }
           </Typography>
-        </CardContent>
-        <CardContent className={classes.resume}>
-          <Typography component="p">
+          <Typography className={classes.text} component="p">
             { video.resume }
           </Typography>
         </CardContent>
         <CardActions>
-          <a href={ video.articleLink } target="_blank" className={classes.links}>
+          <a href={ video.articleLink } target="_blank">
             <Button
               size="small"
               color="primary"
@@ -71,9 +64,8 @@ function VideoCard (props) {
   )
 }
 
-VideoCard.propTypes = {
-  classes: PropTypes.object.isRequired,
-  video: PropTypes.object
+Random.propTypes = {
+  classes: PropTypes.object.isRequired
 }
 
-export default withStyles(styles)(VideoCard)
+export default withStyles(styles)(Random)

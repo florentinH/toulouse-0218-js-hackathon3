@@ -5,7 +5,6 @@ import { withStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
@@ -27,12 +26,15 @@ const styles = theme => ({
     overflow: 'hidden',
     position: 'relative',
     display: 'flex',
+    // backgroundColor: "#191970"
   },
   appBar: {
+    backgroundColor: '#191970',
     zIndex: theme.zIndex.drawer + 1,
     transition: theme.transitions.create(['width', 'margin'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
+      
     }),
   },
   appBarShift: {
@@ -41,6 +43,7 @@ const styles = theme => ({
     transition: theme.transitions.create(['width', 'margin'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
+      // backgroundColor: "#191970"
     }),
   },
   menuButton: {
@@ -76,10 +79,11 @@ const styles = theme => ({
     justifyContent: 'flex-end',
     padding: '0 8px',
     ...theme.mixins.toolbar,
+    
   },
   content: {
     flexGrow: 1,
-    backgroundColor: theme.palette.background.default,
+    // backgroundColor: "#191970",
     padding: theme.spacing.unit * 3,
   },
   title: {
@@ -110,7 +114,7 @@ handleModalClose = () => {
 };
 
   render() {
-    const { classes, theme, component: Component, componentProps } = this.props;
+    const { classes, theme, component: Component, componentProps } = this.props
 
     return (
       <div className={classes.root}>
@@ -118,7 +122,7 @@ handleModalClose = () => {
           position="absolute"
           className={classNames(classes.appBar, this.state.open && classes.appBarShift)}
         >
-          <Toolbar disableGutters={!this.state.open}>
+          <Toolbar  disableGutters={!this.state.open}>
             <IconButton
               color="inherit"
               aria-label="open drawer"
@@ -149,7 +153,7 @@ handleModalClose = () => {
             </IconButton>
           </div>
           <Divider />
-          <SimpleList />
+          <SimpleList logged={this.props.logged} />
           {/* <List>{mailFolderListItems}</List>
           <Divider />
           <List>{otherMailFolderListItems}</List> */}

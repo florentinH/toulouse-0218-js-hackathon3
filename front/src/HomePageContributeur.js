@@ -14,6 +14,7 @@ import Button from '@material-ui/core/Button'
 import UploadVideo from './UploadVideo'
 
 // import UploadVideo from './UploadVideo'
+import Geoloc from './Geoloc'
 
 const styles = {
   element: {
@@ -29,8 +30,8 @@ const styles = {
     display: 'flex'
   },
   paperUpload: {
-    backgroundColor: '#DFE8EA',
-    width: 400
+    width: 400,
+    height: 500
   },
   paperUploadelements: {
     display: 'flex',
@@ -71,10 +72,10 @@ class HomePageContributeur extends Component {
     const { classes } = this.props
     return (
       <div>
-        <Paper className={classes.paper}>
+        <div className={classes.paper}>
           <Grid container className={classes.element}>
             <Grid item xs={12} md={7} className={classes.uploadContent}>
-              <Paper className={classes.paperUpload}>
+              <div className={classes.paperUpload}>
                 <Typography component="h2" className={classes.paperUploadelements}>
             Upload du fichier
                 </Typography>
@@ -82,10 +83,9 @@ class HomePageContributeur extends Component {
                 <TextField type='text' label='Rechercher ma position' className={classes.paperUploadelements} /><br />
                 <input type='file' onChange={this.onChangeFile} />
                 <UploadVideo file={this.state.file} />
-                
-              </Paper>
+            </div>
             </Grid>
-            <Paper className={classes.paperTheme}>
+            <div className={classes.paperTheme}>
               <Grid item xs={12} md={5}>
                 <Grid>
                   <FormControl component="fieldset">
@@ -109,9 +109,9 @@ class HomePageContributeur extends Component {
                   </FormControl>
                 </Grid>
               </Grid>
-            </Paper>
+            </div>
           </Grid>
-        </Paper>
+        </div>
       </div>
     )
   }
