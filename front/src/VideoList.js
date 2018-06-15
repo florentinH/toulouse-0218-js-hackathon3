@@ -6,7 +6,7 @@ import videos from './videos'
 
 const VideoList = (props) => (
   <Grid container spacing={48}>
-   {
+    {
       videos.map((video, k) =>
         <Grid item
           xs={12} sm={4}

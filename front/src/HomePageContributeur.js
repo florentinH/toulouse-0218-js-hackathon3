@@ -83,8 +83,7 @@ class HomePageContributeur extends Component {
                 <TextField type='text' label='Rechercher ma position' className={classes.paperUploadelements} /><br />
                 <input type='file' onChange={this.onChangeFile} />
                 <UploadVideo file={this.state.file} />
-                
-              </div>
+            </div>
             </Grid>
             <div className={classes.paperTheme}>
               <Grid item xs={12} md={5}>

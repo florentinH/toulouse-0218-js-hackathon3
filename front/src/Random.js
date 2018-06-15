@@ -12,18 +12,13 @@ const styles = {
   card: {
     position: 'relative',
     maxWidth: 345,
-    backgroundColor: '#F2EEEE',
-    marginTop: 25,
+    backgroundColor: '#DCDCDC',
+    marginTop: 10,
     height: 380
   },
   media: {
     height: 0,
     paddingTop: '56.25%' // 16:9
-  },
-  resume: {
-    position: 'absolute',
-    bottom: 40,
-
   },
   read: {
     position: 'absolute',
@@ -36,7 +31,7 @@ const styles = {
   }
 }
 
-function VideoCard (props) {
+function Random (props) {
   const { classes, video } = props
   return (
     <div>
@@ -45,14 +40,11 @@ function VideoCard (props) {
           className={classes.media}
           videos={ video.videoLink }
         />
-        {/* <ReactPlayer className={classes.media} url={ video.videoLink } playing /> */}
         <CardContent>
           <Typography gutterBottom variant="title" component="h2">
             { video.title }
           </Typography>
-        </CardContent>
-        <CardContent className={classes.resume}>
-          <Typography component="p">
+          <Typography className={classes.text} component="p">
             { video.resume }
           </Typography>
         </CardContent>
@@ -72,8 +64,8 @@ function VideoCard (props) {
   )
 }
 
-VideoCard.propTypes = {
+Random.propTypes = {
   classes: PropTypes.object.isRequired
 }
 
-export default withStyles(styles)(VideoCard)
+export default withStyles(styles)(Random)
