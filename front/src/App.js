@@ -6,7 +6,6 @@ import Layout from './Layout'
 import Profile from './Profile'
 import Geoloc from './Geoloc'
 
-
 class App extends Component {
   constructor (props) {
     super(props)
