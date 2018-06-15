@@ -7,31 +7,34 @@ import CardContent from '@material-ui/core/CardContent'
 import CardMedia from '@material-ui/core/CardMedia'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
+import YouTube from '@u-wave/react-youtube'
 
 const styles = {
   card: {
     maxWidth: 345,
-    backgroundColor: '#DCDCDC',
     marginTop: 10
   },
   media: {
-    height: 0,
-    paddingTop: '56.25%' // 16:9
+    width: '100%'
   },
   read: {
     backgroundColor: '#DC143C',
     color: '#FFFFFF'
+  },
+  links: {
+    textDecoration: 'none'
   }
 }
 
 function VideoCard (props) {
   const { classes, video } = props
+  const videoId = video.videoLink.split('=').pop()
   return (
     <div>
       <Card className={classes.card}>
-        <CardMedia
+        <YouTube
           className={classes.media}
-          videos={ video.videoLink }
+          video={ videoId }
         />
         <CardContent>
           <Typography gutterBottom variant="title" component="h2">
@@ -42,7 +45,7 @@ function VideoCard (props) {
           </Typography>
         </CardContent>
         <CardActions>
-          <a href={ video.articleLink } target="_blank">
+          <a href={ video.articleLink } target="_blank" className={classes.links}>
             <Button
               size="small"
               color="primary"
@@ -58,7 +61,8 @@ function VideoCard (props) {
 }
 
 VideoCard.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
+  video: PropTypes.object
 }
 
 export default withStyles(styles)(VideoCard)

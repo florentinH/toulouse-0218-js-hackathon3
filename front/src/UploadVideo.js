@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { withStyles } from '@material-ui/core/styles'
-import Grid from '@material-ui/core/Grid'
-import Paper from '@material-ui/core/Paper'
+// import { withStyles } from '@material-ui/core/styles'
+// import Grid from '@material-ui/core/Grid'
+// import Paper from '@material-ui/core/Paper'
 import PropTypes from 'prop-types'
 import Button from '@material-ui/core/Button'
 import axios from 'axios'
@@ -48,7 +48,9 @@ class UploadVideo extends Component {
         uploadType: 'resumable',
         part: 'snippet,status,contentDetails'
       },
-      file, token: accessToken, chunkSize, 
+      file,
+      token: accessToken,
+      chunkSize,
       onProgress: this.onProgress,
       onComplete: this.onComplete
     }
@@ -93,5 +95,7 @@ class UploadVideo extends Component {
     )
   }
 }
-
+UploadVideo.propTypes = {
+  file: PropTypes.object
+}
 export default UploadVideo
