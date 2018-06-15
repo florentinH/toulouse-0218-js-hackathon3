@@ -12,13 +12,18 @@ const styles = {
   card: {
     position: 'relative',
     maxWidth: 345,
-    backgroundColor: '#DCDCDC',
-    marginTop: 10,
+    backgroundColor: '#F2EEEE',
+    marginTop: 25,
     height: 380
   },
   media: {
     height: 0,
     paddingTop: '56.25%' // 16:9
+  },
+  resume: {
+    position: 'absolute',
+    bottom: 40,
+
   },
   read: {
     position: 'absolute',
@@ -44,10 +49,12 @@ function VideoCard (props) {
           <Typography gutterBottom variant="title" component="h2">
             { video.title }
           </Typography>
-          <Typography className={classes.text} component="p">
+        </CardContent>
+        <CardContent className={classes.resume}>
+          <Typography component="p">
             { video.resume }
           </Typography>
-        </CardContent>
+          </CardContent>
         <CardActions>
           <a href={ video.articleLink } target="_blank">
             <Button
