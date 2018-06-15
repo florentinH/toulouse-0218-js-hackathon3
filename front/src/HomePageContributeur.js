@@ -11,6 +11,8 @@ import FormGroup from '@material-ui/core/FormGroup'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import Checkbox from '@material-ui/core/Checkbox'
 import Button from '@material-ui/core/Button'
+import UploadVideo from './UploadVideo'
+
 // import UploadVideo from './UploadVideo'
 import Geoloc from './Geoloc'
 
@@ -39,10 +41,17 @@ const styles = {
     marginLeft: 7
   }
 }
+
 class HomePageContributeur extends Component {
+  onChangeFile = (e) => {
+    this.setState({
+      file: e.target.files[0]
+    })
+  }
   constructor (props) {
     super(props)
     this.state = {
+      tags: {
       ecologie: false,
       social: false,
       economie: false,
@@ -50,58 +59,60 @@ class HomePageContributeur extends Component {
       technologie: false,
       sante: false,
       art: false
+      }
     }
   }
   handleChange (theme) {
+    const {tags} = this.state
     return event =>
-      this.setState({ [theme]: event.target.checked })
+      this.setState({ tags:{...tags, [theme]: event.target.checked }})
   }
   render () {
-    const themes = (Object.keys(this.state))
+    const themes = (Object.keys(this.state.tags))
     const { classes } = this.props
     return (
-      <div className={classes.paper}>
-        <Grid container className={classes.element}>
-          <Grid item xs={12} md={7} className={classes.uploadContent}>
-            <div className={classes.paperUpload}>
-              <Typography component="h2" className={classes.paperUploadelements}>
-          Upload du fichier
-              </Typography>
-              <TextField type='text' label='Titre de la vidéo' className={classes.paperUploadelements} /><br />
-              <TextField type='text' label='Url article' className={classes.paperUploadelements} /><br />
-              <Geoloc /><br />
-              <Button className={classes.paperUploadElements} style={{color: 'white',
-                backgroundColor: '#1313E6',
-                marginTop: 5,
-              }}>Upload</Button>
+      <div>
+        <div className={classes.paper}>
+          <Grid container className={classes.element}>
+            <Grid item xs={12} md={7} className={classes.uploadContent}>
+              <div className={classes.paperUpload}>
+                <Typography component="h2" className={classes.paperUploadelements}>
+            Upload du fichier
+                </Typography>
+                <TextField type='text' label='Titre de la vidéo' className={classes.paperUploadelements} />
+                <TextField type='text' label='Rechercher ma position' className={classes.paperUploadelements} /><br />
+                <input type='file' onChange={this.onChangeFile} />
+                <UploadVideo file={this.state.file} />
+                
+              </div>
+            </Grid>
+            <div className={classes.paperTheme}>
+              <Grid item xs={12} md={5}>
+                <Grid>
+                  <FormControl component="fieldset">
+                    <FormLabel component="legend">Thèmes:</FormLabel>
+                    <FormGroup>
+                      {
+                        themes.map((theme, k) => (
+                          <FormControlLabel
+                            key = {k}
+                            control={
+                              <Checkbox
+                                className={classes.checkBox}
+                                checked={this.state[theme]}
+                                onChange={this.handleChange(theme)}
+                                value={theme} />
+                            }
+                            label={theme} />
+                        ))
+                      }
+                    </FormGroup>
+                  </FormControl>
+                </Grid>
+              </Grid>
             </div>
           </Grid>
-          <div className={classes.paperTheme}>
-            <Grid item xs={12} md={5}>
-              <Grid>
-                <FormControl component="fieldset">
-                  <FormLabel component="legend">Thèmes:</FormLabel>
-                  <FormGroup>
-                    {
-                      themes.map((theme, k) => (
-                        <FormControlLabel
-                          key = {k}
-                          control={
-                            <Checkbox
-                              className={classes.checkBox}
-                              checked={this.state[theme]}
-                              onChange={this.handleChange(theme)}
-                              value={theme} />
-                          }
-                          label={theme} />
-                      ))
-                    }
-                  </FormGroup>
-                </FormControl>
-              </Grid>
-            </Grid>
-          </div>
-        </Grid>
+        </div>
       </div>
     )
   }

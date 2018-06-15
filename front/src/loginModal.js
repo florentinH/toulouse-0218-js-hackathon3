@@ -129,7 +129,7 @@ class SimpleModal extends React.Component {
 
 SimpleModal.propTypes = {
   classes: PropTypes.object.isRequired,
-  open: PropTypes.boolean
+  open: PropTypes.bool
 }
 
 const LoginModal = withStyles(styles)(SimpleModal)

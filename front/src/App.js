@@ -5,7 +5,6 @@ import HomePageContributeur from './HomePageContributeur'
 import Layout from './Layout'
 import Profile from './Profile'
 
-
 class App extends Component {
   constructor (props) {
     super(props)
