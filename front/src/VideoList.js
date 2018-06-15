@@ -4,8 +4,15 @@ import Grid from '@material-ui/core/Grid'
 import VideoCard from './VideoCard'
 import videos from './videos'
 
+const styles = {
+  grid: {
+    marginBottom: 10,
+  },
+}
+
 const VideoList = (props) => (
-  <Grid container spacing={6}>
+  <Grid className={classes.grid}
+    container spacing={48}>
     {
       videos.map((video, k) =>
         <Grid item
