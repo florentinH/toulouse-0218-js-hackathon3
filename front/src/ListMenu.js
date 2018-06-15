@@ -1,19 +1,15 @@
-import React from 'react';
-import { Link } from 'react-router-dom'
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import Divider from '@material-ui/core/Divider';
-import InboxIcon from '@material-ui/icons/Inbox';
-import DraftsIcon from '@material-ui/icons/Drafts';
-import HomePageContributeur from './HomePageContributeur'
+import React from 'react'
+import PropTypes from 'prop-types'
+import { withStyles } from '@material-ui/core/styles'
+import List from '@material-ui/core/List'
+import ListItem from '@material-ui/core/ListItem'
+import ListItemText from '@material-ui/core/ListItemText'
+import Divider from '@material-ui/core/Divider'
+import InboxIcon from '@material-ui/icons/Inbox'
+import DraftsIcon from '@material-ui/icons/Drafts'
 import PhotoLibrary from '@material-ui/icons/PhotoLibrary'
 import AddToPhotos from '@material-ui/icons/AddToPhotos'
 import Face from '@material-ui/icons/Face'
-
 
 const styles = theme => ({
   root: {
@@ -26,8 +22,8 @@ const styles = theme => ({
   }
 })
 
-function SimpleList(props) {
-  const { classes } = props;
+function SimpleList (props) {
+  const { classes } = props
   return (
     <div className={classes.root}>
       <List component="nav">
@@ -52,11 +48,11 @@ function SimpleList(props) {
       </List>
       <Divider />
     </div>
-  );
+  )
 }
 
 SimpleList.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
+  classes: PropTypes.object.isRequired
+}
 
-export default withStyles(styles)(SimpleList);
+export default withStyles(styles)(SimpleList)
