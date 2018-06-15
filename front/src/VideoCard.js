@@ -10,6 +10,7 @@ import Typography from '@material-ui/core/Typography'
 
 const styles = {
   card: {
+    position: 'relative',
     maxWidth: 345,
     backgroundColor: '#DCDCDC',
     marginTop: 10,
@@ -20,8 +21,10 @@ const styles = {
     paddingTop: '56.25%' // 16:9
   },
   read: {
+    position: 'absolute',
+    bottom: 10,
     backgroundColor: '#DC143C',
-    color: '#FFFFFF',
+    color: '#FFFFFF'
   },
   articleLink: {
     marginBottom: 100
