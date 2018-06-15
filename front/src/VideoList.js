@@ -5,14 +5,15 @@ import VideoCard from './VideoCard'
 import videos from './videos'
 
 const VideoList = (props) => (
-  <Grid container spacing={6}>
+  <Grid container spacing={48}>
     {
       videos.map((video, k) =>
         <Grid item
           xs={12} sm={4}
-          key={k}>
-          <VideoCard
-            video={video}
+          key={k}
+        >
+          <VideoCard 
+            video={video} 
           />
         </Grid>
       )

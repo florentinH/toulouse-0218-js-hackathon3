@@ -10,6 +10,7 @@ import DraftsIcon from '@material-ui/icons/Drafts'
 import PhotoLibrary from '@material-ui/icons/PhotoLibrary'
 import AddToPhotos from '@material-ui/icons/AddToPhotos'
 import Face from '@material-ui/icons/Face'
+import SettingsBackupRestore from '@material-ui/icons/SettingsBackupRestore'
 
 const styles = theme => ({
   root: {
@@ -27,6 +28,12 @@ function SimpleList (props) {
   return (
     <div className={classes.root}>
       <List component="nav">
+        <ListItem button component="a" href="/random">
+          <SettingsBackupRestore className={classes.logo}>
+            <DraftsIcon />
+          </SettingsBackupRestore>
+          <ListItemText primary="Random" />
+        </ListItem>
         <ListItem button component="a" href="/">
           <PhotoLibrary className={classes.logo}>
             <InboxIcon />
